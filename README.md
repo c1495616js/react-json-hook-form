@@ -1,6 +1,6 @@
 # Json Schema React Form
 
-#### Storybook
+#### Demo
 
 [Storybook](https://c1495616js.github.io/react-json-hook-form)
 
