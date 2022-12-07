@@ -2,7 +2,7 @@ import { FormProvider, useForm } from 'react-hook-form';
 import { FieldSchema } from '@/types';
 import FieldControl from './FieldControl';
 
-interface FormProps {
+export interface FormProps {
   fields: FieldSchema[];
   customSubmit?: (data: Record<string, unknown>, error: any) => void;
 }

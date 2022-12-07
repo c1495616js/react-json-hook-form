@@ -1,4 +1,9 @@
 import React from 'react';
+import { setConsoleOptions } from '@storybook/addon-console';
+
+setConsoleOptions({
+  panelExclude: [],
+});
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },

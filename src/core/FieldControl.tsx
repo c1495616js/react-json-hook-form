@@ -11,11 +11,21 @@ const FieldControl = ({
 }: FieldSchema) => {
   const { register } = useFormContext();
 
+  const RegisterTextField = TextField(register);
+
   switch (inputType) {
     case 'text':
-      const RegisterTextField = TextField(register);
       return (
         <RegisterTextField
+          fieldName={fieldName}
+          config={config}
+          defaultValue={defaultValue}
+        />
+      );
+    case 'number':
+      return (
+        <RegisterTextField
+          type="number"
           fieldName={fieldName}
           config={config}
           defaultValue={defaultValue}
@@ -37,14 +47,7 @@ const FieldControl = ({
     //     </select>
     //   );
     // }
-    // case 'number':
-    //   return (
-    //     <input
-    //       type="number"
-    //       {...register(fieldName, config)}
-    //       defaultValue={defaultValue}
-    //     />
-    //   );
+
     default:
       return null;
   }

@@ -1,16 +1,18 @@
 /* eslint-disable react/display-name */
-import { FieldSchema } from '@/types';
 import React from 'react';
+
+import { FieldSchema } from '@/types';
 import type { FieldValues, UseFormRegister } from 'react-hook-form';
 
-type Props = Pick<FieldSchema, 'config' | 'fieldName' | 'defaultValue'>;
+type Props = React.InputHTMLAttributes<HTMLInputElement> &
+  Pick<FieldSchema, 'config' | 'fieldName' | 'defaultValue'>;
 
 const TextField =
   (register: UseFormRegister<FieldValues>) =>
-  ({ fieldName, config, defaultValue }: Props) => {
+  ({ fieldName, config, defaultValue, type = 'text' }: Props) => {
     return (
       <input
-        type="text"
+        type={type}
         {...register(fieldName, config)}
         defaultValue={defaultValue}
       />

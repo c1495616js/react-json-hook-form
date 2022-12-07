@@ -1,1 +1,1 @@
-export type TextControlType = 'text';
+export type TextControlType = 'text' | 'number';
