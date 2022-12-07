@@ -1,8 +1,9 @@
 import React from 'react';
 
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { TextField as MuiTextField } from '@mui/material';
 
-import { Form } from '@/index';
+import { Form, JsonFormContextProvider } from '@/index';
 import { FieldSchema } from '@/types';
 
 export default {
@@ -30,3 +31,23 @@ const Template: ComponentStory<typeof Form> = (args) => (
 );
 
 export const TextField = Template.bind({});
+
+const CustomFieldTemplate: ComponentStory<typeof Form> = (args) => (
+  <JsonFormContextProvider
+    customFieldMapping={{
+      text:
+        (register) =>
+        ({ fieldName, config, defaultValue }) =>
+          (
+            <MuiTextField
+              {...register(fieldName, config)}
+              defaultValue={defaultValue}
+            />
+          ),
+    }}
+  >
+    <Form {...args} fields={fields} />
+  </JsonFormContextProvider>
+);
+
+export const CustomMuiTextField = CustomFieldTemplate.bind({});

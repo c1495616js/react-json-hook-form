@@ -13,7 +13,6 @@ const Form = ({ fields, customSubmit }: FormProps) => {
 
   const onSubmit = (data: Record<string, unknown>, error: any) => {
     customSubmit?.(data, error);
-
     // add default submit here:
   };
   return (
