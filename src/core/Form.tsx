@@ -4,13 +4,19 @@ import FieldControl from './FieldControl';
 
 interface FormProps {
   fields: FieldSchema[];
+  customSubmit?: (data: Record<string, unknown>, error: any) => void;
 }
 
-const Form = ({ fields }: FormProps) => {
+const Form = ({ fields, customSubmit }: FormProps) => {
   const formMethods = useForm();
+  const { handleSubmit } = formMethods;
 
+  const onSubmit = (data: Record<string, unknown>, error: any) => {
+    customSubmit?.(data, error);
+    console.log(data, error);
+  };
   return (
-    <form>
+    <form onSubmit={handleSubmit(onSubmit)}>
       <FormProvider {...formMethods}>
         {fields.map((field, i) => (
           <div key={i}>

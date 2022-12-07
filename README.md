@@ -1,6 +1,4 @@
-# npm React Template
-
-This template is for publishing react related packages to npm.
+# Json Schema React Form
 
 #### Features:
 
@@ -9,3 +7,7 @@ This template is for publishing react related packages to npm.
 - 🧱 Pnpm for instead npm
 - 🌎 Path aliasing for streamlined imports
 - 🌈 Prettier + ESLint for consistent code style
+
+#### Refs:
+
+- https://nainacodes.com/blog/create-form-from-json-schema
