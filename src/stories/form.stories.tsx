@@ -16,13 +16,13 @@ const fields: FieldSchema[] = [
     fieldName: 'name',
     inputType: 'text',
     label: 'Name',
-    defaultValue: 'hihihihi',
+    defaultValue: 'Jerry',
   },
   {
-    fieldName: 'password',
+    fieldName: 'age',
     inputType: 'number',
-    label: 'password',
-    defaultValue: 3,
+    label: 'Age',
+    defaultValue: 30,
   },
 ];
 
