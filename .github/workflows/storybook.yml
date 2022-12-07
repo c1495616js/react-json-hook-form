@@ -12,10 +12,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: npm install
-        run: npm ci
+      - name: pnpm install
+        run: pnpm i
 
       - name: Deploy Storybook to gh-page
         env:
           GH_TOKEN: ${{ github.actor }}:${{secrets.GITHUB_TOKEN}}
-        run: npm run deploy-storybook -- --ci
+        run: pnpm deploy-storybook -- --ci
