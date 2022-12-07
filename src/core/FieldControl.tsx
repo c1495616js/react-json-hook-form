@@ -13,6 +13,7 @@ const FieldControl = ({
   const { register } = useFormContext();
   const jsonFormContext = useJsonFormContext();
   let newFieldMapping = FieldMapping;
+
   if (jsonFormContext?.customFieldMapping) {
     newFieldMapping = {
       ...FieldMapping,

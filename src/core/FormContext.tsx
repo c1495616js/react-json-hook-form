@@ -2,7 +2,7 @@ import React from 'react';
 import type { FieldMappingType } from '@/types';
 
 interface IFormContext {
-  customFieldMapping?: FieldMappingType;
+  customFieldMapping?: Partial<FieldMappingType>;
 }
 
 const FormContext = React.createContext<IFormContext | null>(null);
