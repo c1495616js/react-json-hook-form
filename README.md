@@ -60,6 +60,11 @@ import { TextField as MuiTextField } from '@mui/material';
 </JsonFormContextProvider>;
 ```
 
+#### Todo
+
+- [ ] validation with zod
+- [ ] Add props list to Readme
+
 #### Refs:
 
 - https://nainacodes.com/blog/create-form-from-json-schema
