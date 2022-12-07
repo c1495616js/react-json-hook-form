@@ -14,6 +14,9 @@ const FieldControl = ({
   const jsonFormContext = useJsonFormContext();
   let newFieldMapping = FieldMapping;
 
+  /**
+   * if user provided customFieldMapping from the context
+   */
   if (jsonFormContext?.customFieldMapping) {
     newFieldMapping = {
       ...FieldMapping,

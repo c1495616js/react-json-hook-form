@@ -18,8 +18,8 @@ const Form = ({ fields, customSubmit }: FormProps) => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <FormProvider {...formMethods}>
-        {fields.map((field, i) => (
-          <div key={i}>
+        {fields.map((field) => (
+          <div key={field.fieldName}>
             <label htmlFor={field.fieldName}>{field.label}</label>
             <FieldControl {...field} />
           </div>
