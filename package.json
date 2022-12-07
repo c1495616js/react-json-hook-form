@@ -1,6 +1,6 @@
 {
   "name": "@c1495616js/react-json-hook-form",
-  "version": "1.0.8",
+  "version": "1.0.0",
   "description": "",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
