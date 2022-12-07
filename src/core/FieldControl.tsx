@@ -1,6 +1,7 @@
 import { useFormContext } from 'react-hook-form';
 import { FieldSchema } from '@/types';
-import { TextField } from '@/components/fields';
+import { FieldMapping } from './FieldMapping';
+import { useJsonFormContext } from './FormContext';
 
 const FieldControl = ({
   inputType,
@@ -10,46 +11,35 @@ const FieldControl = ({
   config = {},
 }: FieldSchema) => {
   const { register } = useFormContext();
-
-  const RegisterTextField = TextField(register);
+  const jsonFormContext = useJsonFormContext();
+  let newFieldMapping = FieldMapping;
+  if (jsonFormContext?.customFieldMapping) {
+    newFieldMapping = {
+      ...FieldMapping,
+      ...jsonFormContext?.customFieldMapping,
+    };
+  }
+  const Field = newFieldMapping[inputType](register);
 
   switch (inputType) {
-    case 'text':
-      return (
-        <RegisterTextField
-          fieldName={fieldName}
-          config={config}
-          defaultValue={defaultValue}
-        />
-      );
     case 'number':
       return (
-        <RegisterTextField
+        <Field
           type="number"
           fieldName={fieldName}
           config={config}
           defaultValue={defaultValue}
         />
       );
-    // case 'select': {
-    //   return (
-    //     <select
-    //       {...register(fieldName, config)}
-    //       defaultValue={defaultValue}
-    //       name={fieldName}
-    //       id={fieldName}
-    //     >
-    //       {options.map((o, index) => (
-    //         <option key={index} value={o.value}>
-    //           {o.label}
-    //         </option>
-    //       ))}
-    //     </select>
-    //   );
-    // }
 
     default:
-      return null;
+      return (
+        <Field
+          fieldName={fieldName}
+          defaultValue={defaultValue}
+          config={config}
+        />
+      );
   }
 };
 
